@@ -1,0 +1,55 @@
+.titles {
+  color: blue;
+
+  font-style: italic;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+/* .descript {
+  color: blueviolet;
+  font-style: 12px;
+  text-align: center;
+} */
+
+.content-news {
+  color: brown;
+}
+
+.content {
+  color: blueviolet;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.content p {
+  margin: 0;
+}
+
+.news-one {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5em;
+}
+
+li {
+  list-style-type: none;
+}
+
+.list-items {
+  background-color: rgb(221, 204, 183);
+  border-radius: 10px;
+  margin: 0 15px;
+
+  min-height: 600px;
+}
+
+img {
+  max-width: 300px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 10px;
+}
