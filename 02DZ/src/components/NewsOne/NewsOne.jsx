@@ -4,6 +4,7 @@ import Author from '../Author/Author';
 import Categories from '../Categories/Categories';
 import Date from '../Date/Date';
 import Imgs from '../Imgs/imgs';
+import IsSpecial from '../IsSpecial/IsSpecial';
 import Links from '../Links/Links';
 import Titles from '../Titles/Titles';
 import Content from '../Сontent/Сontent';
@@ -16,6 +17,7 @@ class NewsOne extends React.Component {
           return (
             <div key={el.id}>
               <ul className="list-items">
+                <IsSpecial special={el.isSpecial} />
                 <Titles title={el.title} />
                 <Content content={el.content} />
                 <Date date={el.dateCreated} />

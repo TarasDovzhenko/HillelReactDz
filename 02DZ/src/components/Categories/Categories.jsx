@@ -5,16 +5,18 @@ class Categories extends React.Component {
     const { categories } = this.props;
     return (
       <>
-        <li className="categories">
-          {categories.map((el) => {
-            return (
-              <div>
-                <div>ID: {el.id}</div>
-                <div>NAME: {el.name}</div>
-              </div>
-            );
-          })}
-        </li>
+        {categories && (
+          <li className="categories">
+            {categories.map((el) => {
+              return (
+                <div>
+                  <div>ID: {el.id}</div>
+                  <div>NAME: {el.name}</div>
+                </div>
+              );
+            })}
+          </li>
+        )}
       </>
     );
   }
