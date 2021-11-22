@@ -11,25 +11,18 @@ import Content from "./Сontent/Сontent";
 
 class NewsItem extends React.Component {
   render() {
+    const { el } = this.props;
     return (
-      <div className="news-one">
-        {news.map((el) => {
-          return (
-            <div key={el.id}>
-              <ul className="list-items">
-                <IsSpecial special={el.isSpecial} />
-                <Titles title={el.title} />
-                <Content content={el.content} />
-                <Date date={el.dateCreated} />
-                <Links link={el.link} />
-                <Imgs photo={el.photo} />
-                <Author author={el.author} />
-                <Categories categories={el.categories} />
-              </ul>
-            </div>
-          );
-        })}
-      </div>
+      <>
+        <IsSpecial special={el.isSpecial} />
+        <Titles title={el.title} />
+        <Content content={el.content} />
+        <Date date={el.dateCreated} />
+        <Links link={el.link} />
+        <Imgs photo={el.photo} />
+        <Author author={el.author} />
+        <Categories categories={el.categories} />
+      </>
     );
   }
 }
