@@ -1,10 +1,10 @@
 import "./App.css";
-import NewsList from "./components/NewsPage/NewsList/NewsList";
+import PageState from "../src/components/NewsPage/PageState";
 
 function App() {
   return (
     <div className="App">
-      <NewsList />
+      <PageState />
     </div>
   );
 }
