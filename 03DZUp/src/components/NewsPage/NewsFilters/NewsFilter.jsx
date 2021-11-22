@@ -10,7 +10,7 @@ class NewsFilter extends React.Component {
             type="checkbox"
             name="photo"
             id="news-photo"
-            onChange={() => this.handleSelectPhoto(options.value)}
+            // onChange={() => this.handleSelectPhoto(options.value)}
           />
         </div>
 
