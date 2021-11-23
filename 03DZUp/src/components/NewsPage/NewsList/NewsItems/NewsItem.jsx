@@ -1,5 +1,5 @@
 import React from "react";
-import news from "../../../../data/news.json";
+
 import Author from "./Author/Author";
 import Categories from "./Categories/Categories";
 import Date from "./Date/Date";
