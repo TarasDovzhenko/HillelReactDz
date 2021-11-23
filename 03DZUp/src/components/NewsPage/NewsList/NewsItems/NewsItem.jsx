@@ -1,26 +1,26 @@
 import React from "react";
 
-import Author from "./Author/Author";
 import Categories from "./Categories/Categories";
-import Date from "./Date/Date";
-import Imgs from "./Imgs/imgs";
-import IsSpecial from "./IsSpecial/IsSpecial";
-import Links from "./Links/Links";
-import Titles from "./Titles/Titles";
-import Content from "./Сontent/Сontent";
 
 class NewsItem extends React.Component {
   render() {
     const { el } = this.props;
     return (
       <>
-        <IsSpecial special={el.isSpecial} />
-        <Titles title={el.title} />
-        <Content content={el.content} />
-        <Date date={el.dateCreated} />
-        <Links link={el.link} />
-        <Imgs photo={el.photo} />
-        <Author author={el.author} />
+        {el.isSpecial && <div> Special!!! </div>}
+        <h2>{el.title}</h2>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{
+            __html: el.content,
+          }}
+        ></div>
+        <div className="date">{el.dateCreated}</div>
+        <div className="link">
+          <a href={el.link}>{el.link}</a>
+        </div>
+        <div className="photo">{el.photo && <img src={el.photo} alt="" />}</div>
+        <div className="author">{el.author}</div>
         <Categories categories={el.categories} />
       </>
     );

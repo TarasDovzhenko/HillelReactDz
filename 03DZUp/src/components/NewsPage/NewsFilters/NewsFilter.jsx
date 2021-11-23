@@ -3,9 +3,10 @@ import State from "../PageState";
 
 class NewsFilter extends React.Component {
   render() {
-    let { options } = this.props;
+    let { options, onChange } = this.props;
+
     return (
-      <>
+      <div className="checkboxes">
         <div className="checkbox-photo">
           <label htmlFor="news-photo">news with photo</label>
           <input
@@ -13,7 +14,7 @@ class NewsFilter extends React.Component {
             name="photo"
             id="news-photo"
             value="photo"
-            onChange={() => this.handleSelectPhoto(options.value)}
+            onChange={onChange}
           />
         </div>
 
@@ -32,7 +33,7 @@ class NewsFilter extends React.Component {
             value="special"
           />
         </div>
-      </>
+      </div>
     );
   }
 }

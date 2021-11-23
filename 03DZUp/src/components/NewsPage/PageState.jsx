@@ -1,6 +1,7 @@
 import React from "react";
 import NewsFilter from "./NewsFilters/NewsFilter";
 import NewsList from "./NewsList/NewsList";
+import news from "../../data/news";
 
 const options = [
   { label: "Photo", value: "Photo" },
@@ -26,11 +27,24 @@ class State extends React.Component {
     });
     console.log("Lalala");
   };
+
+  testHandler = (event) => {
+    this.setState((pev) => ({
+      ...pev,
+    }));
+
+    console.log(event.target.checked);
+  };
+
   render() {
+    const filteredNews = news.filter((el) => {
+      return el.photo;
+    });
+
     return (
-      <div className="news-one">
-        <NewsFilter options={options} />
-        <NewsList />
+      <div>
+        <NewsFilter options={options} onChange={this.testHandler} />
+        <NewsList newsList={filteredNews} />
       </div>
     );
   }

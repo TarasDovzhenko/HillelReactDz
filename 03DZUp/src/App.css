@@ -25,9 +25,14 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5em;
   background-color: rgb(174, 175, 175);
+  margin: 0;
+}
 
-  
- 
+.checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(114, 126, 126);
+  padding: 15px 0;
 }
 
 li {
@@ -59,10 +64,8 @@ img {
 }
 
 .App {
-  
 }
 
 .link {
   margin: 10px;
 }
-

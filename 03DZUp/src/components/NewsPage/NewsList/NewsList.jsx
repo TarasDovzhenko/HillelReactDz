@@ -1,21 +1,19 @@
 import React from "react";
 import NewsItem from "./NewsItems/NewsItem";
-import news from "../../../data/news";
+// import news from "../../../data/news";
 
 class NewsList extends React.Component {
   render() {
     return (
-      <>
-        {news.map((el) => {
+      <ul className="news-one">
+        {this.props.newsList.map((el) => {
           return (
-            <div key={el.id}>
-              <ul className="list-items">
-                <NewsItem el={el} />
-              </ul>
-            </div>
+            <li className="list-items">
+              <NewsItem key={el.id} el={el} />
+            </li>
           );
         })}
-      </>
+      </ul>
     );
   }
 }
