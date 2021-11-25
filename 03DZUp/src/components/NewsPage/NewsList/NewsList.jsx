@@ -1,6 +1,7 @@
 import React from "react";
 import NewsItem from "./NewsItems/NewsItem";
 // import news from "../../../data/news";
+import PropTypes from "prop-types";
 
 class NewsList extends React.Component {
   render() {
@@ -19,3 +20,11 @@ class NewsList extends React.Component {
 }
 
 export default NewsList;
+
+NewsList.propTypes = {
+  newsList: PropTypes.array,
+};
+
+NewsList.defaultProps = {
+  newsList: [],
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import State from "../PageState";
+import PropTypes from "prop-types";
 
 class NewsFilter extends React.Component {
   render() {
@@ -50,3 +51,14 @@ class NewsFilter extends React.Component {
 }
 
 export default NewsFilter;
+
+NewsFilter.propTypes = {
+  photo: PropTypes.bool.isRequired,
+  link: PropTypes.bool.isRequired,
+  special: PropTypes.bool.isRequired,
+  handlerPhoto: PropTypes.func.isRequired,
+  handlerLink: PropTypes.func.isRequired,
+  handlerSpecial: PropTypes.func.isRequired,
+};
+
+NewsFilter.defaultProps = {};

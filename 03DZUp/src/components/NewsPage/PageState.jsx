@@ -2,6 +2,7 @@ import React from "react";
 import NewsFilter from "./NewsFilters/NewsFilter";
 import NewsList from "./NewsList/NewsList";
 import news from "../../data/news";
+import PropTypes from "prop-types";
 
 class State extends React.Component {
   state = {
