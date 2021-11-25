@@ -3,7 +3,8 @@ import State from "../PageState";
 
 class NewsFilter extends React.Component {
   render() {
-    let { options, onChange } = this.props;
+    let { photo, link, special, handlerPhoto, handlerLink, handlerSpecial } =
+      this.props;
 
     return (
       <div className="checkboxes">
@@ -14,13 +15,21 @@ class NewsFilter extends React.Component {
             name="photo"
             id="news-photo"
             value="photo"
-            onChange={onChange}
+            onChange={() => handlerPhoto(!photo)}
+            checked={photo}
           />
         </div>
 
         <div className="checkbox-link">
           <label htmlFor="news-link">news with link</label>
-          <input type="checkbox" name="link" id="news-link" value="link" />
+          <input
+            type="checkbox"
+            name="link"
+            id="news-link"
+            value="link"
+            onChange={() => handlerLink(!link)}
+            checked={link}
+          />
         </div>
 
         <div className="checkbox-special">
@@ -31,6 +40,8 @@ class NewsFilter extends React.Component {
             name="special"
             id="news-special"
             value="special"
+            onChange={() => handlerSpecial(!special)}
+            checked={special}
           />
         </div>
       </div>

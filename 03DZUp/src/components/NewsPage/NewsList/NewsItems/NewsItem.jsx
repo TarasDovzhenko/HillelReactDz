@@ -7,7 +7,7 @@ class NewsItem extends React.Component {
     const { el } = this.props;
     return (
       <>
-        {el.isSpecial && <div> Special!!! </div>}
+        {el.isSpecial && <div className="is-pecial"> Special!!! </div>}
         <h2>{el.title}</h2>
         <div
           className="content"

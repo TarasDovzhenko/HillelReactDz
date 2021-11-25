@@ -3,47 +3,56 @@ import NewsFilter from "./NewsFilters/NewsFilter";
 import NewsList from "./NewsList/NewsList";
 import news from "../../data/news";
 
-const options = [
-  { label: "Photo", value: "Photo" },
-  { label: "Link", value: "Link" },
-  { label: "Special", value: "Special" },
-];
-
 class State extends React.Component {
   state = {
-    checked: {
-      Photo: false,
-      Link: false,
-      Special: false,
-    },
+    photo: false,
+    link: false,
+    special: false,
   };
 
-  handleSelectPhoto = (value) => {
+  handlerPhoto = (newChecked) => {
     this.setState({
-      checked: {
-        ...this.state.checked,
-        [value]: !this.state.checked[value],
-      },
+      photo: newChecked,
     });
-    console.log("Lalala");
   };
 
-  testHandler = (event) => {
-    this.setState((pev) => ({
-      ...pev,
-    }));
+  handlerLink = (newChecked) => {
+    this.setState({
+      link: newChecked,
+    });
+  };
 
-    console.log(event.target.checked);
+  handlerSpecial = (newChecked) => {
+    this.setState({
+      special: newChecked,
+    });
   };
 
   render() {
+    const { photo, special, link } = this.state;
     const filteredNews = news.filter((el) => {
-      return el.photo;
+      if (photo && !el.photo) {
+        return false;
+      }
+      if (link && !el.link) {
+        return false;
+      }
+      if (special && !el.isSpecial) {
+        return false;
+      }
+      return true;
     });
 
     return (
       <div>
-        <NewsFilter options={options} onChange={this.testHandler} />
+        <NewsFilter
+          photo={photo}
+          link={link}
+          special={special}
+          handlerPhoto={this.handlerPhoto}
+          handlerLink={this.handlerLink}
+          handlerSpecial={this.handlerSpecial}
+        />
         <NewsList newsList={filteredNews} />
       </div>
     );
