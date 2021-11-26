@@ -7,7 +7,14 @@ class NewsItem extends React.Component {
     const { el } = this.props;
     return (
       <>
-        {el.isSpecial && <div className="is-pecial"> Special!!! </div>}
+        {el.isSpecial && (
+          <div className="is-pecial">
+            {" "}
+            <marquee behavior="alternate" direction="right">
+              Special!
+            </marquee>
+          </div>
+        )}
         <h2>{el.title}</h2>
         <div
           className="content"

@@ -10,10 +10,16 @@
   color: brown;
 }
 
+h2 {
+  text-align: center;
+  color: rgb(165, 125, 75);
+}
+
 .content {
   color: rgb(95, 97, 81);
   font-size: 14px;
-  padding: 10px;
+  padding: 25px;
+  text-align: left;
 }
 
 .content p {
@@ -32,7 +38,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: rgb(114, 126, 126);
-  padding: 15px 0;
+  grid-row-gap: 5px;
+  padding: 15px 15px;
 }
 
 li {
@@ -51,6 +58,15 @@ img {
   max-width: 300px;
 }
 
+.categories > div {
+  padding: 0 0 10px 10px;
+}
+
+.author {
+  text-align: right;
+  padding: 10px;
+}
+
 .categories {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -59,10 +75,20 @@ img {
 
 .is-pecial {
   color: rgb(121, 35, 35);
-  font-size: 20px;
-  text-align: center;
+  font-size: 25px;
+  padding-top: 10px;
 }
 
 .link {
   margin: 10px;
+}
+
+.date {
+  text-align: right;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.photo {
+  text-align: center;
 }
