@@ -9,8 +9,8 @@ class NewsList extends React.Component {
       <ul className="news-one">
         {this.props.newsList.map((el) => {
           return (
-            <li className="list-items">
-              <NewsItem key={el.id} el={el} />
+            <li key={el.id} className="list-items">
+              <NewsItem el={el} />
             </li>
           );
         })}

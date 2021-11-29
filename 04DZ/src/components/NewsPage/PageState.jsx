@@ -49,8 +49,13 @@ class State extends React.Component {
         return false;
       }
 
-      if (el.title.toLowerCase().indexOf(search.toLowerCase()) < 0)
+      if (
+        el.title.toLowerCase().indexOf(search.toLowerCase()) < 0 &&
+        el.author.toLowerCase().indexOf(search.toLowerCase()) < 0 &&
+        el.content.toLowerCase().indexOf(search.toLowerCase()) < 0
+      )
         return false;
+
       return true;
     });
 
