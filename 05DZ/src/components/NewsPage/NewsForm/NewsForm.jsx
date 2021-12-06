@@ -21,8 +21,7 @@ export class NewsForm extends React.Component {
       id,
       ...newsDate,
     };
-
-    console.log(news);
+    this.props.onAddNews(news);
   };
 
   handleChangeText = (e) => {
@@ -31,7 +30,6 @@ export class NewsForm extends React.Component {
     this.setState({
       [name]: value,
     });
-    console.log(value, name);
   };
 
   handleChangePhoto = (e) => {

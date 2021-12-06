@@ -10,6 +10,14 @@ class State extends React.Component {
     link: false,
     special: false,
     search: "",
+    items: news,
+  };
+
+  addNews = (newNews) => {
+    console.log("-----------------", newNews);
+    this.setState({
+      items: [newNews, ...this.state.items],
+    });
   };
 
   handlerPhoto = (newChecked) => {
@@ -61,7 +69,7 @@ class State extends React.Component {
 
     return (
       <div>
-        <NewsForm />
+        <NewsForm onAddNews={this.addNews} />
         <NewsFilter
           photo={photo}
           link={link}
