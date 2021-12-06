@@ -1,6 +1,6 @@
 import React from "react";
 import faker from "faker";
-import { getBase64 } from ".././utils";
+import { getBase64 } from "../utils";
 
 export class NewsForm extends React.Component {
   state = {
@@ -96,7 +96,7 @@ export class NewsForm extends React.Component {
             />
           </div>
 
-          <button type="submit">Create movie</button>
+          <button type="submit">Create news</button>
         </form>
       </div>
     );
