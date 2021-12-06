@@ -4,13 +4,6 @@ import NewsItem from "./NewsItems/NewsItem";
 import PropTypes from "prop-types";
 
 class NewsList extends React.Component {
-  addMovie = (newNews) => {
-    console.log("-----------------", newNews);
-    this.setState({
-      news: [newNews, ...this.props.news],
-    });
-  };
-
   render() {
     return (
       <ul className="news-one">

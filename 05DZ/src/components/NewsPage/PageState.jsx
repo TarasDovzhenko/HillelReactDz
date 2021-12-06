@@ -45,8 +45,8 @@ class State extends React.Component {
   };
 
   render() {
-    const { photo, special, link, search } = this.state;
-    const filteredNews = news.filter((el) => {
+    const { photo, special, link, search, items } = this.state;
+    const filteredNews = items.filter((el) => {
       if (photo && !el.photo) {
         return false;
       }

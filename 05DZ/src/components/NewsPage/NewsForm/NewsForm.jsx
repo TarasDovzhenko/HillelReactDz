@@ -79,7 +79,7 @@ export class NewsForm extends React.Component {
             />
           </div>
           <div className="news-form__row">
-            <label htmlFor="news-form-content">Description:</label>
+            <label htmlFor="news-form-content">Сontent:</label>
             <textarea
               value={content}
               onChange={this.handleChangeText}

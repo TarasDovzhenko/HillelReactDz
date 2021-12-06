@@ -28,7 +28,9 @@ class NewsItem extends React.Component {
         </div>
         <div className="photo">{el.photo && <img src={el.photo} alt="" />}</div>
         <div className="author">{el.author}</div>
+        {el.description && <div className="description">{el.description}</div>}
         <Categories categories={el.categories} />
+        {el.hashtag && <div className="hashtag">{el.hashtag}</div>}
       </>
     );
   }
