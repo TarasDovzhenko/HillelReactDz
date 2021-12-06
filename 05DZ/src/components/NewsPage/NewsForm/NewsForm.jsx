@@ -1,6 +1,7 @@
 import React from "react";
 import faker from "faker";
 import { getBase64 } from "../utils";
+import { AUTHOR, HASHTAGS } from "../../../data/data.jsx";
 
 export class NewsForm extends React.Component {
   state = {
@@ -8,8 +9,8 @@ export class NewsForm extends React.Component {
     content: "",
     description: "",
     photo: "",
-    hashtag: "",
-    author: "",
+    hashtag: [],
+    author: [],
   };
 
   handleSubmit = (e) => {
@@ -42,8 +43,30 @@ export class NewsForm extends React.Component {
     });
   };
 
+  handleChangeAuthor = (e) => {
+    const { value } = e.currentTarget;
+    this.setState({
+      author: value,
+    });
+  };
+
+  handleChangeTag = (e) => {
+    const { value } = e.currentTarget;
+    let newTeg;
+
+    if (this.state.hashtag.includes(value)) {
+      newTeg = this.state.hashtag.filter((el) => el !== value);
+    } else {
+      newTeg = [...this.state.hashtag, value];
+    }
+
+    this.setState({
+      hashtag: newTeg,
+    });
+  };
+
   render() {
-    const { title, content, description, photo, hashtag, author } = this.props;
+    const { title, content, description, photo, hashtag, author } = this.state;
     return (
       <div className="news-form">
         <form onSubmit={this.handleSubmit} className="news-form__cont">
@@ -78,22 +101,45 @@ export class NewsForm extends React.Component {
 
           <div className="news-form__row">
             <label htmlFor="news-form-description">Photo:</label>
-            {photo.length > 0 && (
-              <img
-                style={{
-                  width: "300px",
-                  height: "200px",
-                  objectFit: "contain",
-                }}
-                src={photo}
-                alt=""
-              />
-            )}
+            {photo.length > 0 && <img src={photo} alt="" />}
             <input
               type="file"
               accept=".jpeg,.png"
               onChange={this.handleChangePhoto}
             />
+          </div>
+
+          <div className="news-form__row">
+            <span>Author:</span>
+            <div>
+              {AUTHOR.map((el) => (
+                <label key={el.name}>
+                  <input
+                    checked={author === el.name}
+                    type="radio"
+                    value={el.name}
+                    onChange={this.handleChangeAuthor}
+                  />
+                  <span>{el.name}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+          <div className="movie-form__row">
+            <span>Hashtag:</span>
+            <div>
+              {HASHTAGS.map((el) => (
+                <label key={el.value}>
+                  <input
+                    checked={hashtag.indexOf(el.value) !== -1}
+                    type="checkbox"
+                    value={el.value}
+                    onChange={this.handleChangeTag}
+                  />
+                  <span>{el.hashtag}</span>
+                </label>
+              ))}
+            </div>
           </div>
 
           <button type="submit">Create news</button>
