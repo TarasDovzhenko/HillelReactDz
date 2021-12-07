@@ -1,5 +1,5 @@
 import React from "react";
-import { makeNewsData } from "../../data/data";
+import { makeNewsData, makeNews } from "../../data/data";
 import NewsForm from "./NewsForm/NewsForm";
 import NewsList from "./NewsList/NewsList";
 
@@ -25,7 +25,7 @@ class State extends React.Component {
   };
 
   addRandomNews = () => {
-    this.addNews(newsData());
+    this.addNews(makeNews());
   };
 
   render() {
@@ -34,14 +34,13 @@ class State extends React.Component {
       <div className="movies-page">
         <div className="movies-page__list">
           <div className="movies-page__cations">
-            <button onClick={this.addRandomMovie}>Add a random movie</button>
+            <button onClick={this.addRandomNews}>Add a random news</button>
             <button onClick={() => this.setState({ isEditing: !isEditing })}>
               {isEditing ? "Cancel" : "Add a movie"}
             </button>
           </div>
           {isEditing && <NewsForm onAddNews={this.addNews} />}
           <NewsList items={items} onRemoveNews={this.removeMovie} />
-          {/* <MoviesList items={items} onRemoveMovie={this.removeMovie} /> */}
         </div>
       </div>
     );
