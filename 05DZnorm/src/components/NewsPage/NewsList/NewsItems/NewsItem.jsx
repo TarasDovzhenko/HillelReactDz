@@ -10,6 +10,10 @@ class NewsItem extends React.Component {
 
     const authorData = AUTHOR.find((el) => el.id === author);
 
+    const hashtagData = HASHTAGS.filter((srcHashtag) => {
+      return hashtag.indexOf(srcHashtag.value) !== -1;
+    });
+
     return (
       <>
         <h1>{title}</h1>
@@ -29,6 +33,10 @@ class NewsItem extends React.Component {
         <div>
           <b>Author: </b>
           {authorData.name}
+        </div>
+        <div>
+          <b>Hashtag: </b>
+          {hashtagData.map((el) => el.value).join(", ")}
         </div>
       </>
     );
