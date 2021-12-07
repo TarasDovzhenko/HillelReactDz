@@ -38,6 +38,9 @@ class NewsItem extends React.Component {
           <b>Hashtag: </b>
           {hashtagData.map((el) => el.value).join(", ")}
         </div>
+        <div>
+          <button onClick={() => onRemoveNews(id)}>Delete News</button>
+        </div>
       </>
     );
   }
