@@ -36,7 +36,7 @@ class State extends React.Component {
           <div className="movies-page__cations">
             <button onClick={this.addRandomNews}>Add a random news</button>
             <button onClick={() => this.setState({ isEditing: !isEditing })}>
-              {isEditing ? "Cancel" : "Add a movie"}
+              {isEditing ? "Cancel" : "Add a news"}
             </button>
           </div>
           {isEditing && <NewsForm onAddNews={this.addNews} />}
