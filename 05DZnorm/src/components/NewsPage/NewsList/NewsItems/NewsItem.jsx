@@ -8,7 +8,7 @@ class NewsItem extends React.Component {
       onRemoveNews,
     } = this.props;
 
-    const authorData = AUTHOR.find((el) => el.id === author);
+    const authorData = AUTHOR.find((el) => el.name === author);
 
     const hashtagData = HASHTAGS.filter((srcHashtag) => {
       return hashtag.indexOf(srcHashtag.value) !== -1;

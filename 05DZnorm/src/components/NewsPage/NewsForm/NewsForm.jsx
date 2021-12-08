@@ -80,8 +80,8 @@ export class NewsForm extends React.Component {
             />
           </div>
           <div className="news-form__row">
-            <label htmlFor="news-form-content">Сontent: </label>
             <textarea
+              placeholder="Сontent"
               className={style.formTextarea}
               value={content}
               onChange={this.handleChangeText}
@@ -90,8 +90,8 @@ export class NewsForm extends React.Component {
             />
           </div>
           <div className="news-form__row">
-            <label htmlFor="news-form-description">Description:</label>
             <textarea
+              placeholder="Description"
               className={style.formTextarea}
               value={description}
               onChange={this.handleChangeText}

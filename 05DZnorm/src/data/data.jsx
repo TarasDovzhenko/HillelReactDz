@@ -6,7 +6,6 @@ export const AUTHOR = [
   { id: faker.datatype.uuid(), name: "Ivan Rvan" },
   { id: faker.datatype.uuid(), name: "Don Don" },
   { id: faker.datatype.uuid(), name: "Din Don" },
-
   { id: faker.datatype.uuid(), name: "Bom Bom" },
 ];
 
@@ -56,7 +55,8 @@ export function makeNews() {
     description: faker.lorem.sentences(2),
     content: faker.lorem.sentences(5),
     photo: faker.image.imageUrl(),
-    author: AUTHOR[faker.random.number({ min: 0, max: AUTHOR.length - 1 })].id,
+    author:
+      AUTHOR[faker.random.number({ min: 0, max: AUTHOR.length - 1 })].name,
 
     hashtag: [
       HASHTAGS[hashtagIndex].value,
