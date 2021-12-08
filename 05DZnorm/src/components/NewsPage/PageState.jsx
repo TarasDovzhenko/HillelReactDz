@@ -55,9 +55,6 @@ class State extends React.Component {
   render() {
     const { items, isEditing, filters, search, tegSearch, authorSearch } =
       this.state;
-    // const hashtagData = HASHTAGS.filter((srcHashtag) => {
-    //   return hashtag.indexOf(srcHashtag.value) !== -1;
-    // });
 
     const filteredNews = items.filter((el) => {
       if (
@@ -70,11 +67,16 @@ class State extends React.Component {
       if (el.author.toLowerCase().indexOf(authorSearch.toLowerCase()) < 0)
         return false;
 
-      // if (el.hashtag.indexOf(tegSearch.toLowerCase()) < 0) return false;
-
-      if (el.hashtag.includes(tegSearch)) {
+      if (
+        el.hashtag[0].toLowerCase().indexOf(tegSearch.toLowerCase()) < 0 &&
+        el.hashtag[1].toLowerCase().indexOf(tegSearch.toLowerCase()) < 0
+      ) {
         return false;
       }
+
+      // if (el.hashtag[0].includes(tegSearch)) {
+      //   return false;
+      // }
 
       return true;
     });
@@ -87,7 +89,7 @@ class State extends React.Component {
               {isEditing ? "Cancel" : "Add a news"}
             </button>
             <button onClick={() => this.setState({ filters: !filters })}>
-              {filters ? "Cancel" : "Add filters"}
+              {filters ? "Cancel filters" : "Add filters"}
             </button>
           </div>
           {filters && (

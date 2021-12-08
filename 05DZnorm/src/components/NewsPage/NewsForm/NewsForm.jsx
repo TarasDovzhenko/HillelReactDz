@@ -77,7 +77,7 @@ export class NewsForm extends React.Component {
     return (
       <div className={style.newsForm}>
         <form onSubmit={this.handleSubmit} className={style.newsForm}>
-          <div className="news-form__row">
+          <div>
             <label htmlFor="news-form-title">Title:</label>
             <input
               value={title}
@@ -97,7 +97,7 @@ export class NewsForm extends React.Component {
               id="news-form-content"
             />
           </div>
-          <div className="news-form__row">
+          <div>
             <textarea
               placeholder="Description"
               className={style.formTextarea}
@@ -108,7 +108,7 @@ export class NewsForm extends React.Component {
             />
           </div>
 
-          <div className="news-form__row">
+          <div>
             <label htmlFor="news-form-description">Photo:</label>
             {photo.length > 0 && (
               <img
@@ -128,7 +128,7 @@ export class NewsForm extends React.Component {
             />
           </div>
 
-          <div className="news-form__row">
+          <div>
             <span>Author:</span>
             <div>
               {AUTHOR.map((el) => (
@@ -144,7 +144,7 @@ export class NewsForm extends React.Component {
               ))}
             </div>
           </div>
-          <div className="movie-form__row">
+          <div>
             <span>Hashtag:</span>
             <div>
               {HASHTAGS.map((el) => (

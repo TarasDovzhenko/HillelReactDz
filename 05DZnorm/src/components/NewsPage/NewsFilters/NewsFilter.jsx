@@ -53,13 +53,13 @@ class NewsFilter extends React.Component {
 
 export default NewsFilter;
 
-// NewsFilter.propTypes = {
-//   photo: PropTypes.bool.isRequired,
-//   link: PropTypes.bool.isRequired,
-//   special: PropTypes.bool.isRequired,
-//   handlerPhoto: PropTypes.func.isRequired,
-//   handlerLink: PropTypes.func.isRequired,
-//   handlerSpecial: PropTypes.func.isRequired,
-// };
+NewsFilter.propTypes = {
+  search: PropTypes.string.isRequired,
+  tegSearch: PropTypes.string.isRequired,
+  authorSearch: PropTypes.string.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  handleTegSearch: PropTypes.func.isRequired,
+  handleAuthorSearch: PropTypes.func.isRequired,
+};
 
-// NewsFilter.defaultProps = {};
+NewsFilter.defaultProps = {};
