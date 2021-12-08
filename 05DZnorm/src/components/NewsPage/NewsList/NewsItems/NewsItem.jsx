@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { AUTHOR, HASHTAGS } from "../../../../data/data";
 
 class NewsItem extends React.Component {
@@ -8,8 +9,6 @@ class NewsItem extends React.Component {
       onRemoveNews,
     } = this.props;
 
-    const authorData = AUTHOR.find((el) => el.name === author);
-
     const hashtagData = HASHTAGS.filter((srcHashtag) => {
       return hashtag.indexOf(srcHashtag.value) !== -1;
     });
@@ -17,22 +16,30 @@ class NewsItem extends React.Component {
     return (
       <>
         <h1>{title}</h1>
+
         <div>
-          <img
-            style={{
-              width: "300px",
-              height: "200px",
-              objectFit: "cover",
-            }}
-            src={photo}
-            alt={title}
-          />
+          {photo.length > 0 && (
+            <img
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+              }}
+              src={photo}
+              alt={title}
+            />
+          )}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: description }} />
-        <p>{content}</p>
+        {description && (
+          <div
+            className="descrip"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        )}
+        {content && <p className="content">{content}</p>}
         <div>
           <b>Author: </b>
-          {authorData.name}
+          {author}
         </div>
         <div>
           <b>Hashtag: </b>
@@ -41,9 +48,17 @@ class NewsItem extends React.Component {
         <div>
           <button onClick={() => onRemoveNews(id)}>Delete News</button>
         </div>
+        <hr />
       </>
     );
   }
 }
 
 export default NewsItem;
+
+NewsItem.propTypes = {
+  el: PropTypes.object,
+  onRemoveNews: PropTypes.func.isRequired,
+};
+
+NewsItem.defaultProps = {};

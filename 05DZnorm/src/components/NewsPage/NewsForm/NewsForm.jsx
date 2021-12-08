@@ -23,6 +23,14 @@ export class NewsForm extends React.Component {
       ...newsDate,
     };
     this.props.onAddNews(news);
+    this.setState({
+      title: "",
+      content: "",
+      description: "",
+      photo: "",
+      hashtag: "",
+      author: "",
+    });
   };
 
   handleChangeText = (e) => {
