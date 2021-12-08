@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 
 class NewsList extends React.Component {
   render() {
-    const { items, onRemoveNews } = this.props;
+    const { newsList, onRemoveNews } = this.props;
     return (
       <ul className="news-one">
-        {items.map((el) => {
+        {newsList.map((el) => {
           return (
             <li key={el.id} className="list-items">
               <NewsItem el={el} onRemoveNews={onRemoveNews} />
