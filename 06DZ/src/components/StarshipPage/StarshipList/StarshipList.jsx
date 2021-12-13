@@ -19,11 +19,11 @@ class StarshipList extends React.PureComponent {
         ) : (
           <div>
             {error === null ? (
-              <div>
-                <ul className="ship">
+              <div className="ship">
+                <ul className="ship-content">
                   {data.results.map((el) => {
                     return (
-                      <li>
+                      <li className="list-items">
                         <StarshipItems key={el.name} el={el} />
                       </li>
                     );
@@ -45,7 +45,6 @@ class StarshipList extends React.PureComponent {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         this.setState({
           status: "success",
           error: null,

@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import StarshipFilms from "./StarShipFilms";
+import StarshipPilots from "./StarShipPilots";
 
 class StarshipItems extends React.PureComponent {
   render() {
     const { el } = this.props;
-    console.log("DATA", el);
+
     return (
       <>
         <h3>Name: {el.name}</h3>
@@ -21,7 +22,7 @@ class StarshipItems extends React.PureComponent {
         <div>Hyperdrive_rating: {el.hyperdrive_rating}</div>
         <div>MGLT: {el.MGLT}</div>
         <div>Starship_class: {el.starship_class}</div>
-        <div>Pilots: {el.pilots}</div>
+        <StarshipPilots pilots={el.pilots} />
         <div>Created: {el.created}</div>
         <div>Edited: {el.edited}</div>
         <div>
@@ -36,3 +37,11 @@ class StarshipItems extends React.PureComponent {
 }
 
 export default StarshipItems;
+
+StarshipItems.propTypes = {
+  el: PropTypes.array,
+};
+
+StarshipItems.defaultProps = {
+  el: [],
+};
