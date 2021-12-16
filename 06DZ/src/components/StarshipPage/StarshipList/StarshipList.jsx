@@ -7,13 +7,68 @@ class StarshipList extends React.PureComponent {
     status: "initial",
     error: null,
     data: null,
+    search: false,
+    nameShip: "",
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    // const { nameShip } = this.state;
+    // console.log(nameShip);
+    // handleSearch(nameShip);
+  };
+
+  handleChangeText = (e) => {
+    const input = e.currentTarget;
+    const { value } = input;
+    this.setState({
+      nameShip: value,
+    });
+  };
+
+  handleSearch = (id) => {
+    fetch(` https://swapi.dev/api/starships/?search=${id}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.setState({
+          status: "success",
+          error: null,
+          data: data,
+        });
+      })
+      .catch((err) => {
+        this.setState({
+          status: "error",
+          error: err.massage,
+          data: null,
+        });
+      });
   };
 
   render() {
-    const { status, error, data } = this.state;
+    const { status, error, data, search, nameShip } = this.state;
     console.log("sddsdfsdfs", data);
     return (
       <div className="starship-list">
+        <button onClick={() => this.setState({ search: !search })}>
+          {search ? "Cancel search" : "Add search"}
+        </button>
+        {search && (
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              name="filter"
+              id=""
+              placeholder="Enter search"
+              value={nameShip}
+              onChange={this.handleChangeText}
+            />
+            <button>Search</button>
+          </form>
+        )}
         {status === "loading" || status === "initial" ? (
           <div>Loading...</div>
         ) : (
