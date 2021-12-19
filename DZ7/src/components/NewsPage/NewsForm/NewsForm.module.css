@@ -1,0 +1,24 @@
+.newsForm {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  background-color: rgb(196, 195, 194);
+  max-width: 960px;
+  padding: 20px 5px;
+}
+
+.newsForm div {
+  padding-bottom: 10px;
+}
+
+.newsForm {
+  margin: 0 auto;
+}
+
+.formTextarea {
+  height: 96px;
+  width: 400px;
+
+  resize: none;
+}
