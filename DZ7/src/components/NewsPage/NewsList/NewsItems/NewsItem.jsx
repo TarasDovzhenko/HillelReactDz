@@ -33,7 +33,7 @@ class NewsItem extends React.Component {
         opacity: 1,
         y: 0,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.7,
       }
     );
     timeLine.add(titleTransition);
@@ -48,7 +48,7 @@ class NewsItem extends React.Component {
         opacity: 1,
         y: 0,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.7,
       }
     );
     timeLine.add(photoTransition);
@@ -63,7 +63,7 @@ class NewsItem extends React.Component {
         opacity: 1,
         y: 0,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.5,
       }
     );
     timeLine.add(descTransition);
@@ -78,7 +78,7 @@ class NewsItem extends React.Component {
         opacity: 1,
         y: 0,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.5,
       }
     );
     timeLine.add(contentTransition);
@@ -93,7 +93,7 @@ class NewsItem extends React.Component {
         opacity: 1,
         y: 0,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.5,
       }
     );
     timeLine.add(authorTransition);
@@ -108,7 +108,7 @@ class NewsItem extends React.Component {
         opacity: 1,
         y: 0,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.5,
       }
     );
     timeLine.add(hashtagTransition);
@@ -123,7 +123,7 @@ class NewsItem extends React.Component {
         opacity: 1,
         y: 0,
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.5,
       }
     );
     timeLine.add(btnTransition);

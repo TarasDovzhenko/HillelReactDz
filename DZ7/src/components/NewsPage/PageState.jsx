@@ -1,13 +1,28 @@
-import React from "react";
+import React, { createRef } from "react";
 import { makeNewsData, makeNews } from "../../data/data";
 import NewsFilter from "./NewsFilters/NewsFilter";
 import NewsForm from "./NewsForm/NewsForm";
 import NewsList from "./NewsList/NewsList";
-import { AUTHOR, HASHTAGS } from "../../data/data";
+import gsap from "gsap";
 
 const newsData = makeNewsData();
 
 class State extends React.Component {
+  navEl = createRef();
+
+  componentDidMount() {
+    let nav = this.navEl.current;
+
+    let timeLine = gsap.timeline();
+
+    let navTransition = gsap.fromTo(
+      nav,
+      { opacity: 0, x: -100 },
+      { opacity: 1, x: 0, ease: "easeInOut", duration: 2 }
+    );
+    timeLine.add(navTransition);
+  }
+
   state = {
     items: newsData,
     isEditing: false,
@@ -83,7 +98,7 @@ class State extends React.Component {
     return (
       <div className="movies-page">
         <div className="movies-page__list">
-          <div className="movies-page__cations">
+          <div ref={this.navEl} className="movies-page__cations">
             <button onClick={this.addRandomNews}>Add a random news</button>
             <button onClick={() => this.setState({ isEditing: !isEditing })}>
               {isEditing ? "Cancel" : "Add a news"}
